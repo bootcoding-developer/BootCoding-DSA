@@ -2,11 +2,13 @@ package com.bootcoding.linkedlist;
 
 import com.bootcoding.linklist.LinkList;
 
+import java.util.Random;
+
 public class DeleteLinkedList {
 
 
     public static void main(String[] args) {
-        Node head = createLinkedList();
+        Node head = createLL(10);
         System.out.println("Before Delete");
         printLinkedList(head);
         //head = head.next;
@@ -36,6 +38,17 @@ public class DeleteLinkedList {
         return head;
     }
 
+    private static Node createLL(int size)
+    {
+        Node head = new Node(10);
+        Node temp = head;
+        for(int i= 1; i < size; i++){
+            Node newNode = new Node(new Random().nextInt());
+            temp.next = newNode;
+            temp = newNode;
+        }
+        return head;
+    }
     public static void printLinkedList(Node head){
         Node temp = head;
         while (temp != null)
